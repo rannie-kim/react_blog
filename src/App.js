@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+
 
 function App() {
+  let [titles,setTitles] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬 독학']);
+  let [likes, setLikes] = useState(0);
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="black-nav">
+        <div>개발 Blog</div>
+      </div>
+      {titles.map((title, index) => (
+        <div className="list" key={index}>
+          <h4>{title}</h4>
+          <p>2월 17일 발행</p>
+        </div>
+      ))}
+    <h4> { titles[0] } <span onClick = {()=>likes = likes+1}>👍</span> {likes} </h4>
     </div>
   );
 }
